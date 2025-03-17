@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ary Sus Gaming</title>
+    <style>
+        /* General Body and Page Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        /* Homepage & Hall of Fame Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+            color: white;
+        }
+
+        /* Visitor Counter Box Styling */
+        .visitor-count-box {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            width: 200px;
+        }
+
+        .visitor-count-box h3 {
+            margin: 10px 0;
+        }
+
+        /* Page styling */
+        .page {
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            padding: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            color: #fff;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        /* Button Styling */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .button {
+            background-color: #444444;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #666666;
+        }
+
+        /* Games Container Styling */
+        .games-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Game Box Styling */
+        .game {
+            background-color: #444;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            width: 200px;
+            height: 250px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .game:hover {
+            transform: scale(1.05);
+        }
+
+        .game img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .game h2 {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        /* Link Styling */
+        .game a {
+            text-decoration: none;
+        }
+
+        /* Record Section Styling */
+        .record-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            height: 100vh;
+        }
+
+        /* Hall of Fame & Shoutouts Section Styling */
+        .halloffame-container, .shoutouts-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Visitor Counter Box (Visible only on Homepage) -->
+    <div id="visitorCountBox" class="visitor-count-box">
+        <h3>Visitor Count</h3>
+        <p><strong>All-Time Visits:</strong> <span id="allTimeCount">0</span></p>
+        <p><strong>This Week's Visits:</strong> <span id="weeklyCount">0</span></p>
+    </div>
+
+    <!-- Homepage Content -->
+    <div id="homepage" class="page homepage active" style="background-image: url('https://tse1.mm.bing.net/th/id/OIP.P4uHTjYp49uv3EAxA522IAHaEK?rs=1&pid=ImgDetMain');">
+        <div class="container">
+            <h1>Ary Sus Gaming</h1>
+            <p>Welcome to Ary Sus Gaming, if you want any games on asg ( email 107176, im so dumb to use my school email 💀 )!</p>
+            <div class="button-container">
+                <a href="#" class="button" onclick="showPage('halloffame')">Hall of Fame</a>
+                <a href="#" class="button" onclick="showPage('games')">Games</a>
+                <a href="#" class="button" onclick="showPage('records')">Records</a>
+                <a href="#" class="button" onclick="showPage('shoutouts')">Shoutouts</a>
+                <a href="chat.html" class="button">Chat</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hall of Fame Page -->
+    <div id="halloffame" class="page halloffame">
+        <div class="halloffame-container">
+            <h1>Hall of Fame</h1>
+            <h2>Cool People</h2>
+            <p style="font-size: 2rem;"><a href="https://msg1.pages.dev/">Mally,</a> Boey, Anshinator, Couch, ExoFiex6</p>
+            <p style="font-size: 2rem;">Sub to TheGodlyNoob_YT ( Boey ) on youtube!</p>
+            <p style="font-size: 2rem;">Btw suggest me games on my outlook if you want to be on the hall of fame ;) </p>
+            <a href="#" class="button" onclick="goBack()">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Games Page -->
+    <div id="games" class="page games">
+        <div class="container">
+            <h1>GAMES</h1>
+            <p>Check out our featured games!</p>
+
+            <div class="games-container">
+                <!-- Row 1 -->
+                <div class="game">
+                    <h2>MSG (Click Image)</h2>
+                    <a href="https://msg1.pages.dev" target="_blank">
+                        <img src="https://msg1.pages.dev/IMGS/MSG.png" alt="Msg">
+                    </a>
+                </div>
+
+                <div class="game">
+                    <h2>Game 2</h2>
+                    <a href="https://www.example2.com" target="_blank">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.pWfP9NtjoZ_7WtCdTvJ10wHaH_?rs=1&pid=ImgDetMain/game2.jpg" alt="Game 2">
+                    </a>
+                </div>
+
+                <div class="game">
+                    <h2>Game 3</h2>
+                    <a href="https://www.example3.com" target="_blank">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.pWfP9NtjoZ_7WtCdTvJ10wHaH_?rs=1&pid=ImgDetMain/game3.jpg" alt="Game 3">
+                    </a>
+                </div>
+            </div>
+
+            <div class="games-container">
+                <div class="game">
+                    <h2>Game 4</h2>
+                    <a href="https://www.example4.com" target="_blank">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.pWfP9NtjoZ_7WtCdTvJ10wHaH_?rs=1&pid=ImgDetMain/game4.jpg" alt="Game 4">
+                    </a>
+                </div>
+
+                <div class="game">
+                    <h2>Game 5</h2>
+                    <a href="https://www.example5.com" target="_blank">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.pWfP9NtjoZ_7WtCdTvJ10wHaH_?rs=1&pid=ImgDetMain/game5.jpg" alt="Game 5">
+                    </a>
+                </div>
+
+                <div class="game">
+                    <h2>Game 6</h2>
+                    <a href="https://www.example6.com" target="_blank">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.pWfP9NtjoZ_7WtCdTvJ10wHaH_?rs=1&pid=ImgDetMain/game6.jpg" alt="Game 6">
+                    </a>
+                </div>
+            </div>
+            
+            <a href="#" class="button" onclick="goBack()">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for page switching
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function goBack() {
+            showPage('homepage');
+        }
+    </script>
+
+</body>
+</html>
